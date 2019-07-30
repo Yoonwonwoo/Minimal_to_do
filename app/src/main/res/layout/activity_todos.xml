@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="3"
+			android:background="#3F51B5"
+			android:orientation="vertical"
+			android:id="@+id/todoTitle">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="40dp"
+				android:layout_marginTop="70dp"
+				android:text="Title"
+				android:textColor="#fff"
+				android:textSize="20sp" />
+
+			<EditText
+				android:layout_width="330dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="40dp"
+				android:id="@+id/titleEdit"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_weight="7"
+			android:background="#DF000000"
+			android:orientation="vertical">
+
+			<EditText
+				android:layout_width="330dp"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="40dp"
+				android:layout_marginTop="40dp"
+				android:hint="Description"
+				android:textColorHint="#ffffff"
+				android:id="@+id/desEdit"/>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="3"
+					android:gravity="center"
+					android:orientation="horizontal">
+
+					<ImageView
+						android:layout_width="30dp"
+						android:layout_height="30dp"
+						android:layout_marginLeft="40dp"
+						android:layout_marginRight="10dp"
+						android:background="#B5FFFFFF" />
+
+					<TextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="5"
+						android:text="Remind Me"
+						android:textColor="#fff"
+						android:textSize="20dp" />
+
+					<android.support.v7.widget.SwitchCompat
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_weight="2"
+						android:id="@+id/dateSwitch"/>
+
+					<ImageView
+						android:layout_width="0dp"
+						android:layout_height="30dp"
+						android:layout_marginLeft="10dp"
+						android:layout_marginRight="40dp"
+						android:layout_weight="1"
+						android:background="#B5ffffff" />
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_weight="7"
+					android:orientation="vertical"
+					android:id="@+id/dateLinear">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:orientation="horizontal">
+
+						<Button
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_marginStart="40dp"
+							android:layout_weight="2" />
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="\@"
+							android:textColor="#fff" />
+
+						<Button
+							android:layout_width="0dp"
+							android:layout_height="wrap_content"
+							android:layout_marginEnd="40dp"
+							android:layout_weight="2" />
+
+
+					</LinearLayout>
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="나는 원우다."
+						android:layout_marginLeft="40dp"
+						android:textSize="18dp"
+						android:textColor="#fff"/>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<android.support.design.widget.FloatingActionButton
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_anchor="@id/todoTitle"
+		app:layout_anchorGravity="bottom|end|right"
+		android:layout_marginEnd="16dp"
+		android:id="@+id/enterButton"/>
+
+</android.support.design.widget.CoordinatorLayout>
