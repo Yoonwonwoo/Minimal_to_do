@@ -11,7 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
-    ArrayList<TodoItem> list = new ArrayList<>();
+    ArrayList<TodoItem> list;
+
+
+    public RecyclerAdapter(ArrayList<TodoItem> list) {
+        this.list = list;
+    }
 
     @NonNull
     @Override
@@ -26,12 +31,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         holder.listDate.setText(list.get(position).getDate());
     }
 
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
+    public class ItemViewHolder extends RecyclerView.ViewHolder{
         TextView listTitle , listDate;
         ImageView listImage;
 
@@ -41,6 +42,45 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
             listTitle = itemView.findViewById(R.id.listTitle);
             listDate = itemView.findViewById(R.id.listDate);
             listImage = itemView.findViewById(R.id.listImage);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+                    if(pos != RecyclerView.NO_POSITION){
+                        if(mListener != null){
+                            mListener.onItemClick(v, pos);
+                        }
+                    }
+                }
+            });
         }
+
     }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public void removeItem(int position){
+        list.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public void restoreItem(TodoItem item, int position){
+        list.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(View v, int position);
+    }
+
+    private OnItemClickListener mListener = null;
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.mListener = listener;
+    }
+
 }

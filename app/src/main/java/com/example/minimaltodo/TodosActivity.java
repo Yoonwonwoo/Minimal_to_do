@@ -36,6 +36,7 @@ public class TodosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todos);
 
+        resultText = findViewById(R.id.resultText);
         titleEdit = findViewById(R.id.titleEdit);
         desEdit = findViewById(R.id.desEdit);
 
@@ -48,9 +49,9 @@ public class TodosActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent();
                     TodoItem item = new TodoItem(titleEdit.getText().toString(), desEdit.getText().toString(), resultText.getText().toString());
-                    intent.putExtra("title", titleEdit.getText());
-                    intent.putExtra("des", desEdit.getText());
-                    intent.putExtra("date", resultText.getText());
+                    intent.putExtra("title", titleEdit.getText().toString());
+                    intent.putExtra("des", desEdit.getText().toString());
+                    intent.putExtra("date", resultText.getText().toString());
                     setResult(RESULT_OK, intent);
                     finish();
                 }
@@ -120,7 +121,7 @@ public class TodosActivity extends AppCompatActivity {
 
     private void updateDialog(){
         resultText = findViewById(R.id.resultText);
-        resultText.setText(y + "년 " + m + "월 " + d +"일 " + h + "시 " + m +"분");
+        resultText.setText(y + "년 " + m + "월 " + d +"일 " + h + "시 " + mi +"분");
     }
 
     private void updateButton(){
