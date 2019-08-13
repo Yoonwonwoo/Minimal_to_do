@@ -44,6 +44,7 @@ public class TodosActivity extends AppCompatActivity {
 
         pos = getIntent().getIntExtra("pos", 0);
 
+
         enterButton = findViewById(R.id.enterButton);
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,8 +123,8 @@ public class TodosActivity extends AppCompatActivity {
 
         });
 
-        if(list.get(pos).getTitle() != null && list.size() != 0){
-            titleEdit.setText(list.get(pos).getTitle());
+        if(list.size() != 0){
+            titleEdit.setText(list.get(pos).getTitle(),TextView.BufferType.EDITABLE);
         }
 
     }
