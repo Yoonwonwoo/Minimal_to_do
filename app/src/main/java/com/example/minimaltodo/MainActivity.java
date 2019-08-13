@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
             @Override
             public void onItemClick(View v, int position) {
                 Intent intent = new Intent(MainActivity.this, TodosActivity.class);
+                intent.putExtra("pos", position);
                 startActivityForResult(intent, 1);
             }
         });
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
                 adapter.notifyDataSetChanged();
                 setNoItem();
             }else if(requestCode == 1){
-                list.set(<여기에 포지션>, new TodoItem(data.getStringExtra("title"),data.getStringExtra("des"),data.getStringExtra("date")));
+                list.set(data.getIntExtra("position", 0), new TodoItem(data.getStringExtra("title"),data.getStringExtra("des"),data.getStringExtra("date")));
                 adapter.notifyDataSetChanged();
             }
         }

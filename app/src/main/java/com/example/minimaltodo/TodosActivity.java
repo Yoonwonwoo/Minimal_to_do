@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -29,7 +30,8 @@ public class TodosActivity extends AppCompatActivity {
     Button dateButton, timeButton;
     Calendar calendar = Calendar.getInstance();
     TextView resultText;
-    int y, m, d, h, mi;
+    ArrayList<TodoItem> list = new ArrayList<>();
+    int y, m, d, h, mi, pos;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +41,8 @@ public class TodosActivity extends AppCompatActivity {
         resultText = findViewById(R.id.resultText);
         titleEdit = findViewById(R.id.titleEdit);
         desEdit = findViewById(R.id.desEdit);
+
+        pos = getIntent().getIntExtra("pos", 0);
 
         enterButton = findViewById(R.id.enterButton);
         enterButton.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +56,7 @@ public class TodosActivity extends AppCompatActivity {
                     intent.putExtra("title", titleEdit.getText().toString());
                     intent.putExtra("des", desEdit.getText().toString());
                     intent.putExtra("date", resultText.getText().toString());
+                    intent.putExtra("position", pos);
                     setResult(RESULT_OK, intent);
                     finish();
                 }
@@ -116,6 +121,10 @@ public class TodosActivity extends AppCompatActivity {
             }
 
         });
+
+        if(list.get(pos).getTitle() != null && list.size() != 0){
+            titleEdit.setText(list.get(pos).getTitle());
+        }
 
     }
 
