@@ -31,6 +31,7 @@ public class TodosActivity extends AppCompatActivity {
     Calendar calendar = Calendar.getInstance();
     TextView resultText;
     ArrayList<TodoItem> list = new ArrayList<>();
+    String titleStr, desStr, dateStr;
     int y, m, d, h, mi, pos;
 
     @Override
@@ -123,8 +124,14 @@ public class TodosActivity extends AppCompatActivity {
 
         });
 
-        if(list.size() != 0){
-            titleEdit.setText(list.get(pos).getTitle(),TextView.BufferType.EDITABLE);
+        titleStr = getIntent().getStringExtra("title");
+        desStr = getIntent().getStringExtra("des");
+        dateStr = getIntent().getStringExtra("date");
+
+        if(titleStr != null){
+            titleEdit.setText(titleStr);
+            desEdit.setText(desStr);
+            resultText.setText(dateStr);
         }
 
     }

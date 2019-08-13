@@ -52,7 +52,12 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
             @Override
             public void onItemClick(View v, int position) {
                 Intent intent = new Intent(MainActivity.this, TodosActivity.class);
+
                 intent.putExtra("pos", position);
+                intent.putExtra("title", list.get(position).getTitle());
+                intent.putExtra("des", list.get(position).getDescription());
+                intent.putExtra("date", list.get(position).getDate());
+
                 startActivityForResult(intent, 1);
             }
         });
