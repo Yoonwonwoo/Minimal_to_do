@@ -20,17 +20,19 @@
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginLeft="40dp"
+				android:layout_marginLeft="30dp"
 				android:layout_marginTop="70dp"
 				android:text="Title"
 				android:textColor="#fff"
 				android:textSize="20sp" />
 
 			<EditText
-				android:layout_width="330dp"
+				android:layout_width="300dp"
 				android:layout_height="wrap_content"
-				android:layout_marginLeft="40dp"
-				android:id="@+id/titleEdit"/>
+				android:layout_marginLeft="30dp"
+				android:id="@+id/titleEdit"
+				android:theme="@style/EditTheme"
+				android:textColor="#fff"/>
 
 		</LinearLayout>
 
@@ -42,13 +44,15 @@
 			android:orientation="vertical">
 
 			<EditText
-				android:layout_width="330dp"
+				android:layout_width="300dp"
 				android:layout_height="wrap_content"
-				android:layout_marginLeft="40dp"
+				android:layout_marginLeft="30dp"
 				android:layout_marginTop="40dp"
 				android:hint="Description"
 				android:textColorHint="#ffffff"
-				android:id="@+id/desEdit"/>
+				android:textColor="#fff"
+				android:id="@+id/desEdit"
+				android:theme="@style/EditTheme"/>
 
 			<LinearLayout
 				android:layout_width="match_parent"
@@ -65,9 +69,9 @@
 					<ImageView
 						android:layout_width="30dp"
 						android:layout_height="30dp"
-						android:layout_marginLeft="40dp"
+						android:layout_marginLeft="30dp"
 						android:layout_marginRight="10dp"
-						android:background="#B5FFFFFF" />
+						android:background="@drawable/ic_alarm_add_white_24dp" />
 
 					<TextView
 						android:layout_width="0dp"
@@ -89,7 +93,7 @@
 						android:layout_marginLeft="10dp"
 						android:layout_marginRight="40dp"
 						android:layout_weight="1"
-						android:background="#B5ffffff" />
+						android:background="@drawable/ic_filter_none_black_24dp" />
 
 				</LinearLayout>
 
@@ -111,20 +115,26 @@
 							android:layout_height="wrap_content"
 							android:layout_marginStart="40dp"
 							android:layout_weight="2"
-							android:id="@+id/dateButton"/>
+							android:id="@+id/dateButton"
+							android:background="#00000000"
+							android:textColor="#fff"
+							android:textSize="16sp"/>
 
 						<TextView
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:text="\@"
-							android:textColor="#fff" />
+							android:textColor="@color/colorAccent" />
 
 						<Button
 							android:layout_width="0dp"
 							android:layout_height="wrap_content"
 							android:layout_marginEnd="40dp"
 							android:layout_weight="2"
-							android:id="@+id/timeButton"/>
+							android:id="@+id/timeButton"
+							android:background="#00000000"
+							android:textColor="#fff"
+							android:textSize="16sp"/>
 
 
 					</LinearLayout>
@@ -152,6 +162,8 @@
 		app:layout_anchor="@id/todoTitle"
 		app:layout_anchorGravity="bottom|end|right"
 		android:layout_marginEnd="16dp"
-		android:id="@+id/enterButton"/>
+		android:id="@+id/enterButton"
+		android:src="@drawable/ic_send_white_18dp"
+		android:backgroundTint="#FFC107"/>
 
 </android.support.design.widget.CoordinatorLayout>

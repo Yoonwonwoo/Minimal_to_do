@@ -1,5 +1,7 @@
 package com.example.minimaltodo;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,9 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
     ArrayList<TodoItem> list;
+
 
 
     public RecyclerAdapter(ArrayList<TodoItem> list) {
@@ -29,19 +33,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     public void onBindViewHolder(@NonNull RecyclerAdapter.ItemViewHolder holder, int position) {
         holder.listTitle.setText(list.get(position).getTitle());
         holder.listDate.setText(list.get(position).getDate());
+        holder.icon.setText(list.get(position).getTitle().substring(0, 1));
+
+        Random random = new Random();
+        int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+        ((GradientDrawable)holder.icon.getBackground()).setColor(color);
     }
 
 
     public class ItemViewHolder extends RecyclerView.ViewHolder{
         TextView listTitle , listDate;
-        ImageView listImage;
+        TextView icon;
 
         ItemViewHolder(View itemView){
             super(itemView);
 
             listTitle = itemView.findViewById(R.id.listTitle);
             listDate = itemView.findViewById(R.id.listDate);
-            listImage = itemView.findViewById(R.id.listImage);
+            icon = itemView.findViewById(R.id.icon);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -1,5 +1,11 @@
 package com.example.minimaltodo;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
@@ -18,6 +24,7 @@ import android.widget.LinearLayout;
 import  android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements DeleteTodo.DeleteTodoListener {
 
@@ -46,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
         init();
 
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
 
         adapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
@@ -62,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
             }
         });
 
-
     }
+
 
     private void init() {
         recyclerView = findViewById(R.id.mainRecycler);
@@ -138,9 +146,6 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.settingItem :
-                break;
-
             case R.id.aboutItem :
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);

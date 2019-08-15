@@ -3,6 +3,7 @@ package com.example.minimaltodo;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -32,6 +34,11 @@ public class TodosActivity extends AppCompatActivity {
     TextView resultText;
     ArrayList<TodoItem> list = new ArrayList<>();
     String titleStr, desStr, dateStr;
+    long now = System.currentTimeMillis();
+    Date date = new Date(now);
+    SimpleDateFormat simpledate = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat simpletime = new SimpleDateFormat("hh:mm");
+    String datenow = simpledate.format(date), timenow = simpletime.format(date);
     int y, m, d, h, mi, pos;
 
     @Override
@@ -42,9 +49,13 @@ public class TodosActivity extends AppCompatActivity {
         resultText = findViewById(R.id.resultText);
         titleEdit = findViewById(R.id.titleEdit);
         desEdit = findViewById(R.id.desEdit);
+        timeButton = findViewById(R.id.timeButton);
+        dateButton = findViewById(R.id.dateButton);
 
         pos = getIntent().getIntExtra("pos", 0);
 
+        dateButton.setText(datenow);
+        timeButton.setText(timenow);
 
         enterButton = findViewById(R.id.enterButton);
         enterButton.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +70,7 @@ public class TodosActivity extends AppCompatActivity {
                     intent.putExtra("des", desEdit.getText().toString());
                     intent.putExtra("date", resultText.getText().toString());
                     intent.putExtra("position", pos);
+
                     setResult(RESULT_OK, intent);
                     finish();
                 }
@@ -78,7 +90,7 @@ public class TodosActivity extends AppCompatActivity {
             }
         });
 
-        dateButton = findViewById(R.id.dateButton);
+        dateButton.setPaintFlags(dateButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +113,7 @@ public class TodosActivity extends AppCompatActivity {
             }
         });
 
-        timeButton = findViewById(R.id.timeButton);
+        timeButton.setPaintFlags(timeButton.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         timeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
