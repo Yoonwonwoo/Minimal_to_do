@@ -12,6 +12,10 @@
         <menu>
 
             <item
+                android:title="Settings"
+                android:id="@+id/settings"/>
+
+            <item
                 android:id="@+id/aboutItem"
                 android:title="About"/>
 

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class TodosActivity extends AppCompatActivity {
+public class TodosActivity extends Settings {
     FloatingActionButton enterButton;
     EditText titleEdit, desEdit;
     SwitchCompat dateSwitch;

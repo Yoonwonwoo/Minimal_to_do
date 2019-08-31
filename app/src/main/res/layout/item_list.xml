@@ -33,7 +33,6 @@
             android:text="Anne marie"
             android:textSize="16sp"
             android:id="@+id/listTitle"
-            android:textColor="#000"
             android:layout_gravity="start"/>
 
         <TextView
@@ -43,7 +42,7 @@
             android:text="2003 03 06"
             android:textSize="12sp"
             android:layout_gravity="start"
-            android:textColor="#FF9800"/>
+            android:textColor="?attr/colorAccent"/>
 
     </LinearLayout>
 

@@ -13,7 +13,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
 			android:layout_weight="3"
-			android:background="#3F51B5"
+			android:background="@color/colorPrimary"
 			android:orientation="vertical"
 			android:id="@+id/todoTitle">
 
@@ -23,6 +23,7 @@
 				android:layout_marginLeft="30dp"
 				android:layout_marginTop="70dp"
 				android:text="Title"
+				android:background="@color/colorPrimary"
 				android:textColor="#fff"
 				android:textSize="20sp" />
 
@@ -30,9 +31,7 @@
 				android:layout_width="300dp"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="30dp"
-				android:id="@+id/titleEdit"
-				android:theme="@style/EditTheme"
-				android:textColor="#fff"/>
+				android:id="@+id/titleEdit" />
 
 		</LinearLayout>
 
@@ -40,7 +39,6 @@
 			android:layout_width="match_parent"
 			android:layout_height="0dp"
 			android:layout_weight="7"
-			android:background="#DF000000"
 			android:orientation="vertical">
 
 			<EditText
@@ -49,10 +47,7 @@
 				android:layout_marginLeft="30dp"
 				android:layout_marginTop="40dp"
 				android:hint="Description"
-				android:textColorHint="#ffffff"
-				android:textColor="#fff"
-				android:id="@+id/desEdit"
-				android:theme="@style/EditTheme"/>
+				android:id="@+id/desEdit" />
 
 			<LinearLayout
 				android:layout_width="match_parent"
@@ -78,8 +73,8 @@
 						android:layout_height="wrap_content"
 						android:layout_weight="5"
 						android:text="Remind Me"
-						android:textColor="#fff"
-						android:textSize="20dp" />
+						android:textSize="20dp"
+						android:textColor="@color/gray300"/>
 
 					<android.support.v7.widget.SwitchCompat
 						android:layout_width="0dp"
@@ -117,14 +112,13 @@
 							android:layout_weight="2"
 							android:id="@+id/dateButton"
 							android:background="#00000000"
-							android:textColor="#fff"
 							android:textSize="16sp"/>
 
 						<TextView
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							android:text="\@"
-							android:textColor="@color/colorAccent" />
+							android:textColor="?attr/colorAccent" />
 
 						<Button
 							android:layout_width="0dp"
@@ -133,7 +127,6 @@
 							android:layout_weight="2"
 							android:id="@+id/timeButton"
 							android:background="#00000000"
-							android:textColor="#fff"
 							android:textSize="16sp"/>
 
 
@@ -145,7 +138,6 @@
 						android:text="나는 원우다."
 						android:layout_marginLeft="40dp"
 						android:textSize="18dp"
-						android:textColor="#fff"
 						android:id="@+id/resultText"/>
 
 				</LinearLayout>
@@ -163,7 +155,6 @@
 		app:layout_anchorGravity="bottom|end|right"
 		android:layout_marginEnd="16dp"
 		android:id="@+id/enterButton"
-		android:src="@drawable/ic_send_white_18dp"
-		android:backgroundTint="#FFC107"/>
+		android:src="@drawable/ic_send_white_18dp" />
 
 </android.support.design.widget.CoordinatorLayout>

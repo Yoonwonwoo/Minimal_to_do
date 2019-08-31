@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeUtils.onActivitySetTheme(this);
         setContentView(R.layout.activity_main);
 
         addButton = findViewById(R.id.addButton);
@@ -90,13 +91,13 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK){
-            if(requestCode == 0){
-                list.add(new TodoItem(data.getStringExtra("title"),data.getStringExtra("des"),data.getStringExtra("date")));
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 0) {
+                list.add(new TodoItem(data.getStringExtra("title"), data.getStringExtra("des"), data.getStringExtra("date")));
                 adapter.notifyDataSetChanged();
                 setNoItem();
-            }else if(requestCode == 1){
-                list.set(data.getIntExtra("position", 0), new TodoItem(data.getStringExtra("title"),data.getStringExtra("des"),data.getStringExtra("date")));
+            } else if (requestCode == 1) {
+                list.set(data.getIntExtra("position", 0), new TodoItem(data.getStringExtra("title"), data.getStringExtra("des"), data.getStringExtra("date")));
                 adapter.notifyDataSetChanged();
             }
         }
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
         main = findViewById(R.id.main);
 
-        if(viewHolder instanceof RecyclerAdapter.ItemViewHolder){
+        if (viewHolder instanceof RecyclerAdapter.ItemViewHolder) {
             final TodoItem deleteItem = list.get(viewHolder.getAdapterPosition());
             final int deleteIndex = viewHolder.getAdapterPosition();
 
@@ -128,11 +129,11 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
 
     }
 
-    public void setNoItem(){
+    public void setNoItem() {
         noItem = findViewById(R.id.noItem);
-        if(adapter.getItemCount() == 0){
+        if (adapter.getItemCount() == 0) {
             noItem.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             noItem.setVisibility(View.GONE);
         }
     }
@@ -145,11 +146,18 @@ public class MainActivity extends AppCompatActivity implements DeleteTodo.Delete
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.aboutItem :
                 Intent intent = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent);
+                return true;
+
+            case R.id.settings :
+                Intent intent2 = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent2);
+                return true;
+
+                default : return super.onOptionsItemSelected(item);
         }
-        return true;
     }
 }
