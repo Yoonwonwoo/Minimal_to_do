@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Minimal_to_do-master.iml" filepath="$PROJECT_DIR$/Minimal_to_do-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Minimal_to_do.iml" filepath="$PROJECT_DIR$/Minimal_to_do.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

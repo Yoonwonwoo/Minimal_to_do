@@ -1,9 +1,17 @@
 package com.example.minimaltodo;
 
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class TodoItem implements Serializable {
+
     String title, description;
     String date;
 

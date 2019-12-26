@@ -62,7 +62,7 @@ public class TodosActivity extends Settings {
             @Override
             public void onClick(View view) {
                 if (titleEdit.getText().toString().length() == 0 || desEdit.getText().toString().length() == 0) {
-                    Toast.makeText(getApplicationContext(), "더 써 짜식아", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "더 쓰자", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent();
                     TodoItem item = new TodoItem(titleEdit.getText().toString(), desEdit.getText().toString(), resultText.getText().toString());
@@ -157,4 +157,6 @@ public class TodosActivity extends Settings {
         dateButton.setText(y+"."+m+"."+d);
         timeButton.setText(h+":"+mi);
     }
+
+
 }
